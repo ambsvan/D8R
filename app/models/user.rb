@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
 
-  belongs_to :preferences
+  has_many :preferences
 
 end
