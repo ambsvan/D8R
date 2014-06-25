@@ -10,11 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321144528) do
+ActiveRecord::Schema.define(version: 20140625194728) do
+
+  create_table "activities", force: true do |t|
+    t.string "location"
+    t.string "img"
+    t.string "date_type"
+  end
+
+  create_table "preferences", force: true do |t|
+    t.integer "user_id"
+    t.string  "gender_pref"
+    t.integer "age_range"
+    t.string  "date_type"
+  end
 
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
+    t.string   "username"
+    t.string   "password"
+    t.string   "img"
+    t.integer  "age"
+    t.string   "gender"
+    t.string   "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
