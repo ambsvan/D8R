@@ -27,7 +27,7 @@ post '/' do
   )
   if @user.save
     session[:id] = @user.id
-    redirect '/' # need to redirect to next page
+    redirect '/profile'
   else
     erb :'/' 
   end
@@ -46,7 +46,7 @@ post '/login' do
     password: params[:password])
   if @user
     session[:id] = @user.id
-    redirect '/'
+    redirect '/profile'
   else
     erb :'/login'
   end
