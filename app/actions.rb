@@ -72,7 +72,7 @@ end
 
 post '/profile' do
   @preference = Preference.new(
-    id: session[:id].to_i,
+    user_id: session[:id].to_i,
     gender_pref: params[:gender_pref],
     age_range: params[:age_range],
     date_type:  params[:date_type]
