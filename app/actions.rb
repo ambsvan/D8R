@@ -1,9 +1,19 @@
 helpers do
-  def current_user
+  def get_current_user
     @current_user ||= User.find(session[:id]) if session[:id]
   end
 end
 #starts session for current user
+
+# get '/songs' do
+#   @current_user = get_current_user
+#   if @current_user  
+#     @user = @current_user.
+#   else
+#     @songs = Song.all
+#   end
+#   erb :'songs/index'
+# end
 
 
 get '/' do
@@ -12,7 +22,7 @@ end
 #loads homepage
 
 get '/profile' do
-  erb :'profile'
+  erb :profile
 end
 
 post '/' do
@@ -29,7 +39,7 @@ post '/' do
     session[:id] = @user.id
     redirect '/profile'
   else
-    erb :'/' 
+    erb :'index' 
   end
 end
 
@@ -48,6 +58,7 @@ post '/login' do
     session[:id] = @user.id
     redirect '/profile'
   else
+    @login_failed = true
     erb :'/login'
   end
 end

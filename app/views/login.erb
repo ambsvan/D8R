@@ -4,11 +4,11 @@
     <div class="form">
       <div>
         <label>Username:</label>
-        <input type="text" name="username" value="<%= @users && @users.username %>">
+        <input type="text" name="username" value="<%= params[:username] %>" required>
       </div>
       <div>
         <label>Password:</label>
-        <input type="text" name="password" value="<%= @users && @users.password %>">
+        <input type="text" name="password" value="" required>
       </div>  
       <div>
       <input type="submit" value="Login">
@@ -16,14 +16,15 @@
     </div>
   </div>
 </form>
+<div><% if @login_failed  %>Invalid login, please try again</div><%end%>
 
 <a href="/">Reload Homepage</a>
 
-  <% if @users && @users.errors.any? %>
+  <% if @user && @user.errors.any? %>
   <div>
     <strong>There are some issues with your input, you'll have to fix them:</strong>
     <ul>
-      <% @users.errors.full_messages.each do |input| %>
+      <% @user.errors.full_messages.each do |input| %>
         <li><%= input %></li>
       <% end %>
     </ul>
