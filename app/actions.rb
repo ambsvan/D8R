@@ -72,7 +72,7 @@ end
 
 post '/profile' do
   @preference = Preference.new(
-    id: session[:id].to_i),
+    id: session[:id].to_i,
     gender_pref: params[:gender_pref],
     age_range: params[:age_range],
     date_type:  params[:date_type]
@@ -80,6 +80,5 @@ post '/profile' do
     @preference.save
     erb :'/profile'
   end
-end
 
   #logout

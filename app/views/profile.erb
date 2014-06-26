@@ -16,26 +16,32 @@
 <h2> Date preferences</h2>
 
 <form action="/profile" method="post">
-<h3>Choose your gender preference:</h3>
-<select name="gender_preferences">
-<option value="male">Male</option>
-<option value="female">Female</option>
-</select>
-<h3>Choose your age range:</h3>
-<select name="age_range">
-<option value="18-25">18-25</option>
-<option value="26-35">25-35</option>
-<option value="36-45">25-45</option>
-<option value="45+">45+</option>
-</select>
-<h3>Choose your date type:</h3>
-<select name="date_type">
-<option value="coffee">Coffee</option>
-<option value="outdoor_activity">Ouutdoor Activity</option>
-<option value="restaurant">Restaurant</option>
-<option value="drinks">Drinks</option>
-</select>
-  <div>
-  <input type="submit" value="Save Preferences">
-  </div>
+  <div class="form">
+      <div>
+        <h3>Choose your gender preference:</h3>
+        <select name="gender_pref">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        </select>
+      </div>
+      <div>
+        <h3>Choose your age range:</h3>
+        <select name="age_range">
+        <option value="18-25">18-25</option>
+        <option value="26-35">25-35</option>
+        <option value="36-45">25-45</option>
+        <option value="45+">45+</option>
+        </select>
+      </div>
+      <div>
+        <h3>Choose your date type:</h3>
+        <select name="date_type">
+        <option value="coffee">Coffee</option>
+        <option value="outdoor_activity">Ouutdoor Activity</option>
+        <option value="restaurant">Restaurant</option>
+        <option value="drinks">Drinks</option>
+        </select>
+      </div>
+    </div>
+    <input type="submit" value="Save Preferences">
 </form>
