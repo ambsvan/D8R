@@ -21,8 +21,9 @@
         <input type="text" name="age" value="<%= @user && @user.age %>">
       </div>
        <div>
-        <label>Gender:</label>
-        <input type="text" name="gender" value="<%= @user && @user.gender %>">
+       <label>Gender:</label>
+          <input type="radio" name="gender" value="male">Male<br>
+          <input type="radio" name="gender" value="female">Female
       </div>
       <div>
         <label>Bio (140 chars max):</label>

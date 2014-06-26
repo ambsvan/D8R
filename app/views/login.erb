@@ -8,7 +8,7 @@
       </div>
       <div>
         <label>Password:</label>
-        <input type="text" name="password" value="" required>
+        <input type="password" name="password" value="" required>
       </div>  
       <div>
       <input type="submit" value="Login">
@@ -16,17 +16,6 @@
     </div>
   </div>
 </form>
-<div><% if @login_failed  %>Invalid login, please try again</div><%end%>
+<div><% @login_failed  %>Invalid login, please try again</div>
 
 <a href="/">Reload Homepage</a>
-
-  <% if @user && @user.errors.any? %>
-  <div>
-    <strong>There are some issues with your input, you'll have to fix them:</strong>
-    <ul>
-      <% @user.errors.full_messages.each do |input| %>
-        <li><%= input %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>

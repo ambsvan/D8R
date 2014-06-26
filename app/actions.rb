@@ -57,6 +57,7 @@ post '/login' do
   if @user
     session[:id] = @user.id
     redirect '/profile'
+    @login_failed = false
   else
     @login_failed = true
     erb :'/login'
