@@ -1,6 +1,6 @@
 helpers do
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session[:id]) if session[:id]
   end
 end
 #starts session for current user
@@ -11,16 +11,22 @@ get '/' do
 end
 #loads homepage
 
+get '/profile' do
+  erb :'profile'
+end
+
 post '/' do
   @user = User.new(
+    # id: session[:id].to_i),
     username: params[:username],
     password: params[:password],
     img:  params[:img],
     age: params[:age],
     gender: params[:gender],
-    user_id: session[:user_id].to_i)
+    bio: params[:bio]
+  )
   if @user.save
-    session[:user_id] = @users.id
+    session[:id] = @user.id
     redirect '/' # need to redirect to next page
   else
     erb :'/' 
@@ -35,22 +41,21 @@ get '/login' do
 end
 
 post '/login' do
-  @users = User.find_by(
+  @user = User.find_by(
     username: params[:username],
     password: params[:password])
-  if @users
-    session[:user_id] = @users.id
+  if @user
+    session[:id] = @user.id
     redirect '/'
   else
     erb :'/login'
   end
 end
-
 #login
 
 post '/logout' do
-  session[:user_id] = nil
+  session[:id] = nil
   redirect '/'
-  end
+end
 
   #logout
