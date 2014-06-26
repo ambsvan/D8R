@@ -81,4 +81,8 @@ post '/profile' do
     erb :'/profile'
   end
 
+  post '/activity' do
+  erb :activity
+end
+
   #logout

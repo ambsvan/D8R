@@ -1,0 +1,8 @@
+<a href="/">Home</a>
+<%if get_current_user %>
+<form action="/logout" method="post">
+  <input type="submit" value="logout">
+</form>
+<% end %>
+
+<h1>Match Page</h1>
