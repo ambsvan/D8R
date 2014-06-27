@@ -1,6 +1,6 @@
 helpers do
   def get_current_user
-    @current_user ||= User.find(session[:id]) if session[:id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 end
 #starts session for current user
@@ -17,12 +17,12 @@ end
 
 
 get '/' do
-  erb :index
+  erb :'index'
 end
 #loads homepage
 
 get '/profile' do
-  erb :profile
+  erb :'profile'
 end
 
 post '/' do
@@ -36,7 +36,7 @@ post '/' do
     bio: params[:bio]
   )
   if @user.save
-    session[:id] = @user.id
+    session[:user_id] = @user.id
     redirect '/profile'
   else
     erb :'index' 
@@ -47,7 +47,7 @@ end
 # Reloads the page, need to implement redirect
 
 get '/login' do
-  erb :'login'
+  erb :'/login'
 end
 
 post '/login' do
@@ -55,7 +55,7 @@ post '/login' do
     username: params[:username],
     password: params[:password])
   if @user
-    session[:id] = @user.id
+    session[:user_id] = @user.id
     redirect '/profile'
     @login_failed = false
   else
@@ -66,7 +66,7 @@ end
 #login
 
 post '/logout' do
-  session[:id] = nil
+  session[:user_id] = nil
   redirect '/'
 end
 
@@ -85,7 +85,7 @@ post '/profile' do
         date_type: params[:date_type]) 
 
   end
-  erb :'/profile'
+  redirect '/profile'
 end
 
 post '/activity' do
