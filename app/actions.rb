@@ -105,6 +105,7 @@ get '/find_match' do
   #the matchs for gender and age range in a list of matches
   @gender_matches = Preference.find_gender_match(user_preference)
   @date_type_matches = Preference.find_date_type_match(user_preference)
+  @age_range = Preference.find_age_range_match(user_preference)
   erb :'/find_match'
 end
 

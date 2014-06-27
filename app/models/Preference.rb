@@ -14,6 +14,13 @@ class Preference < ActiveRecord::Base
     date_type_match = Preference.where(date_type: user_preferences.date_type)
   end
 
+  def self.find_age_range_match(user_preferences)
+    current_users_age_range_pref = user_preferences.age_range
+    array = current_users_age_range_pref.split
+    between_this_range = array[0] 
+
+    # ages = Preference.find(6).age_range.split
+  end
   # def find_age_range_values(matches)
   #   matches.each do |x|
   #     x.age_range.select{|j| j =~ (\d{2})}
