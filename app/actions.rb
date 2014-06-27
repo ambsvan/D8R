@@ -98,10 +98,10 @@ end
 # end
 
 
-get '/activity' do
+get '/find_match' do
   @users = User.all
   @preferences = Preference.all
-  erb :'activity'
+  erb :'/find_match'
 end
 
 
