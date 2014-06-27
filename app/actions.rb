@@ -99,8 +99,12 @@ end
 
 
 get '/find_match' do
+  #finds the preferences of the current user in the pref table
   user_preference = Preference.find(get_current_user)
-  @matches = Preference.find_match(user_preference)
+  #calls the find match method on preferences table and returns
+  #the matchs for gender and age range in a list of matches
+  @gender_matches = Preference.find_gender_match(user_preference)
+  @date_type_matches = Preference.find_date_type_match(user_preference)
   erb :'/find_match'
 end
 
