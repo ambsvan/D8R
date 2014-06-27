@@ -71,17 +71,26 @@ post '/logout' do
 end
 
 post '/profile' do
-  @preference = Preference.new(
-    user_id: session[:id].to_i,
-    gender_pref: params[:gender_pref],
-    age_range: params[:age_range],
-    date_type:  params[:date_type]
-  )
-    @preference.save
-    erb :'/profile'
-  end
 
-  post '/activity' do
+  @preference = get_current_user.preference
+  if @preference.nil?
+      @preference = Preference.create(user_id: session[:id].to_i,
+      gender_pref: params[:gender_pref],
+      age_range: params[:age_range],
+      date_type:  params[:date_type])
+  else
+      @preference.update_attributes(user_id: session[:id].to_i, 
+        gender_pref: params[:gender_pref], 
+        age_range: params[:age_range], 
+        date_type: params[:date_type]) 
+
+  end
+  erb :'/profile'
+end
+
+post '/activity' do
+  @current_user = User.find(session[:id])
+  @preferences = @current_user.preference
   erb :activity
 end
 
