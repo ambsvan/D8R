@@ -37,7 +37,7 @@
         <h3>Choose your date type:</h3>
         <select name="date_type">
         <option value="coffee">Coffee</option>
-        <option value="outdoor_activity">Ouutdoor Activity</option>
+        <option value="outdoor_activity">Outdoor Activity</option>
         <option value="restaurant">Restaurant</option>
         <option value="drinks">Drinks</option>
         </select>
@@ -45,3 +45,9 @@
     </div>
     <input type="submit" value="Save Preferences">
 </form>
+
+<%if get_current_user %>
+<form action="/activity" method="post">
+  <input type="submit" value="Find me a match!">
+</form>
+<% end %>

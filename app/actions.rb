@@ -88,4 +88,11 @@ post '/profile' do
   erb :'/profile'
 end
 
+post '/activity' do
+  @current_user = User.find(session[:id])
+  @preferences = @current_user.preference
+  erb :activity
+end
+
+
   #logout
