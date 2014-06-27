@@ -1,19 +1,20 @@
 helpers do
   def get_current_user
-    @current_user ||= User.find(session[:id]) if session[:id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 end
-#starts session for current user
 
-# get '/songs' do
-#   @current_user = get_current_user
-#   if @current_user  
-#     @user = @current_user.
-#   else
-#     @songs = Song.all
-#   end
-#   erb :'songs/index'
-# end
+
+# @current_user=get_current_user
+# @preferences =@current_user.preferences
+
+# list =User.find_by((:gender => @preferences.gender_pref) 
+    # @match = User.where(:gender => @preferences.gender_pref,
+    #   :age => @preferences.age_range).first
+
+
+
+#starts session for current user
 
 
 get '/' do
@@ -36,7 +37,7 @@ post '/' do
     bio: params[:bio]
   )
   if @user.save
-    session[:id] = @user.id
+    session[:user_id] = @user.id
     redirect '/profile'
   else
     erb :'index' 
@@ -55,7 +56,7 @@ post '/login' do
     username: params[:username],
     password: params[:password])
   if @user
-    session[:id] = @user.id
+    session[:user_id] = @user.id
     redirect '/profile'
     @login_failed = false
   else
@@ -66,7 +67,7 @@ end
 #login
 
 post '/logout' do
-  session[:id] = nil
+  session[:user_id] = nil
   redirect '/'
 end
 
@@ -74,25 +75,35 @@ post '/profile' do
 
   @preference = get_current_user.preference
   if @preference.nil?
-      @preference = Preference.create(user_id: session[:id].to_i,
+      @preference = Preference.create(
+        user_id: session[:user_id].to_i,
       gender_pref: params[:gender_pref],
       age_range: params[:age_range],
-      date_type:  params[:date_type])
+      date_type: params[:date_type])
   else
-      @preference.update_attributes(user_id: session[:id].to_i, 
+      @preference.update_attributes(
+        user_id: session[:user_id].to_i, 
         gender_pref: params[:gender_pref], 
         age_range: params[:age_range], 
         date_type: params[:date_type]) 
 
   end
-  erb :'/profile'
+  redirect '/profile'
 end
 
-post '/activity' do
-  @current_user = User.find(session[:id])
-  @preferences = @current_user.preference
-  erb :activity
+# post '/activity' do
+#   @current_user = User.find(session[:user_id])
+#   @preferences = @current_user.preference
+#   erb :activity
+# end
+
+
+get '/activity' do
+  @users = User.all
+  @preferences = Preference.all
+  erb :'activity'
 end
+
 
 
   #logout

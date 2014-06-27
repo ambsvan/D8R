@@ -1,10 +1,34 @@
 <a href="/">Home</a>
+
 <%if get_current_user %>
 <form action="/logout" method="post">
   <input type="submit" value="logout">
+
 </form>
 <% end %>
 
 <h1>Match Page</h1>
 
-<p><%= @preferences %></p>
+if
+
+<% x = @preferences.find_by(user_id: @current_user.id).gender_pref %>
+<% y = @preferences.find_by(gender_pref: x).user_id %>
+
+<%= @users.find(y).username %>
+if there is more than 1, you got to do an each do on the y
+
+&&
+
+<% e = @preferences.find_by(user_id: @current_user.id).age_range %>
+<% r = @preferences.find_by(age_range: e).user_id %>
+<%= @users.find(r).username %>
+
+do 
+
+this
+
+else
+
+no matches
+
+end
