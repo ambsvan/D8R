@@ -4,6 +4,12 @@ helpers do
   end
 end
 
+helpers do  
+  def find_activity
+      date_type_match = Activity.where(date_type: user_preferences.date_type)
+  end
+end
+
 
 # @current_user=get_current_user
 # @preferences =@current_user.preferences
@@ -76,7 +82,7 @@ post '/profile' do
   @preference = get_current_user.preference
   if @preference.nil?
       @preference = Preference.create(
-        user_id: session[:user_id].to_i,
+      user_id: session[:user_id].to_i,
       gender_pref: params[:gender_pref],
       age_range: params[:age_range],
       date_type: params[:date_type])
@@ -106,6 +112,7 @@ get '/find_match' do
   @gender_matches = Preference.find_gender_match(user_preference)
   @date_type_matches = Preference.find_date_type_match(user_preference)
   @age_range = Preference.find_age_range_match(user_preference)
+  # @activity = generate_activity
   erb :'/find_match'
 end
 
