@@ -7,21 +7,46 @@
 </form>
 <% end %>
 
-<h1>Match Page</h1>
+<!-- DAY TYPE MATCH -->
+
+<div class="match_title">
+<h1> Date Type Matches</h1>
+<% @date_type_matches.each do |d| %>
+<% if d.user_id == nil %>
+<%= puts "Sorry! No matches found." %>
+<% else %>
+
+<div class="match_page">
+<img class="show_match" src="<%= User.find(d.user_id).img %>">
+<br>
+<br>
+<%= User.find(d.user_id).username %>
+<% end %>
+<% end %>
+</div>
+
+<br><br>
+
+
+
+<div class="match_title">
+<h1> Age Type Matches</h1>
+<%= @age_range %>
+</div>
+<br>
+<br>
+
+<!-- GENDER MATCH -->
+
+<div class="match_title">
+<h1>Gender Matches</h1>
 <% @gender_matches.each do |m| %>
+</div>
+
+<div class="match_page">
+<img class="show_match" src="<%= m.img %>">
+<br>
+<br>
 <%= m.username %>
 <% end %>
-
-<br><br>
-
-<% @date_type_matches.each do |d| %>
-<% if d.id == nil %>
-<%= puts "no matches found" %>
-<% else %>
-<%= d.id %>
-<% end %>
-<% end %>
-
-<br><br>
-
-<%= @age_range %>
+</div>
