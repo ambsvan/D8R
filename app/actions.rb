@@ -18,12 +18,12 @@ end
 
 
 get '/' do
-  erb :index
+  erb :'index'
 end
 #loads homepage
 
 get '/profile' do
-  erb :profile
+  erb :'profile'
 end
 
 post '/' do
@@ -48,7 +48,7 @@ end
 # Reloads the page, need to implement redirect
 
 get '/login' do
-  erb :'login'
+  erb :'/login'
 end
 
 post '/login' do
@@ -99,9 +99,10 @@ end
 
 
 get '/find_match' do
-  @users = User.all
-  @preferences = Preference.all
-  erb :'find_match'
+
+  user_preference = Preference.find(get_current_user)
+  @matches = Preference.find_match(user_preference)
+  erb :'/find_match'
 end
 
 
