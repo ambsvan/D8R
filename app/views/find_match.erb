@@ -1,0 +1,29 @@
+<a href="/">Home</a>
+
+<%if get_current_user %>
+<form action="/logout" method="post">
+  <input type="submit" value="logout">
+
+</form>
+<% end %>
+
+<h1>Match Page</h1>
+
+<% @gender_matches.each do |m| %>
+<%= m.username %>
+<% end %>
+
+<br><br>
+
+<% @date_type_matches.each do |d| %>
+<% if d.id == nil %>
+<%= puts "no matches found" %>
+<% else %>
+<%= d.id %>
+<% end %>
+<% end %>
+
+<br><br>
+
+<%= @age_range %>
+
