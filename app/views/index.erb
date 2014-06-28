@@ -1,9 +1,12 @@
 <h1>SnapDate</h1>
 
-<h2>Welcome to the App. Please Sign up below.</h2>
+<center><h2>Welcome to the App. Please Sign up below.</h2></center>
 
+<div class="margin"></div>
+
+<div class="form">
 <form action="/" method="post">
-    <div class="form">
+    <div>
       <div>
         <label>Username:</label>
         <input type="text" name="username" value="<%= @user && @user.username %>">
@@ -21,8 +24,8 @@
         <input type="text" name="age" value="<%= @user && @user.age %>">
       </div>
        <div>
-       <label>Gender:</label>
-          <input type="radio" name="gender" value="male">Male<br>
+       <label>Gender:</label> &nbsp;
+          <input type="radio" name="gender" value="male">Male &nbsp;
           <input type="radio" name="gender" value="female">Female
       </div>
       <div>
@@ -35,6 +38,8 @@
     </div>
   </div>
 </form>
+</div>
+
 
 <a href="/">Reload Homepage</a>
 
@@ -49,7 +54,8 @@
   </div>
 <% end %>
 
-
+<div class="login">
 <form action="/login" method="post">
   <input type="submit" value="login">
 </form>
+</div>

@@ -16,28 +16,27 @@ class Preference < ActiveRecord::Base
     #returns a list of preferences with date type match
   end
 
+  # @young_adult = [18, 19, 20, 21 , 22, 23, 24, 25]
+  # @mid_life = [26, 27, 28, 29, 30 , 31 , 32, 33, 34, 35]
+  # @adult = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+  # @silver_fox = [45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86. 87. 88. 89. 90. 91. 92. 93. 94. 95. 96. 97. 98. 99]
+
   def self.find_age_range_match(user_preferences)
-    current_users_age_range_pref = user_preferences.age_range
-    array = current_users_age_range_pref.split('-').map(&:to_i)
-    x=(array[0]..array[1])
-    for i in x
-      puts i
+    @users = User.all
+    if user_preferences.age_range == "18-25"
+      @users.select {|u| u.age >= 18 && u.age <= 25}
     end
-    # return age_range_array = array[1]
-   # for i in age_range_array
-   #  return
   end
-
-    # ages = Preference.find(6).age_range.split
-
-  # def find_age_range_values(matches)
-  #   matches.each do |x|
-  #     x.age_range.select{|j| j =~ (\d{2})}
-  # end
-
 end
+    #   User.map { |user| user.age >= 18 && user.age <= 25 }
+    #  User.map {|age_range| }
+    # elsif user_preferences.age_range == "26-35"
+    #   User.map { |user| user.age >= 26 && user.age <= 25 }
+    #if user_preference.age_rage == "26-35"
 
-# # Widget.where('created_at > ? AND 
-#   created_at < ?', 2.hours.ago, Time.now)
+    # if user_preference.age_range == "36-45"
 
-# age_range.select{|j| j =~ (\d{2})}
+    # if user_preference.age_range == "45+"
+    #     true
+    #   end
+    # end

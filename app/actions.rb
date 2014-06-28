@@ -105,7 +105,7 @@ end
 
 
 get '/find_match' do
-  user_preference = Preference.find(get_current_user)
+  user_preference = get_current_user.preference
   #calls the find match method on preferences table and returns
   #the matchs for gender and age range in a list of matches
   @gender_matches = Preference.find_gender_match(user_preference)
