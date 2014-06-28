@@ -10,19 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626205417) do
+ActiveRecord::Schema.define(version: 20140625194728) do
 
   create_table "activities", force: true do |t|
-    t.string "location"
-    t.string "img"
-    t.string "date_type"
+    t.string  "description"
+    t.string  "location"
+    t.string  "img"
+    t.integer "activity_type_id"
+  end
+
+  create_table "activity_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "preferences", force: true do |t|
     t.integer "user_id"
     t.string  "gender_pref"
-    t.string  "date_type"
-    t.string  "age_range"
+    t.integer "min_age"
+    t.integer "max_age"
+    t.integer "activity_type_id"
   end
 
   create_table "users", force: true do |t|
@@ -37,4 +45,3 @@ ActiveRecord::Schema.define(version: 20140626205417) do
   end
 
 end
-  
