@@ -76,7 +76,7 @@ post '/profile' do
   @preference = get_current_user.preference
   if @preference.nil?
       @preference = Preference.create(
-        user_id: session[:user_id].to_i,
+      user_id: session[:user_id].to_i,
       gender_pref: params[:gender_pref],
       age_range: params[:age_range],
       date_type: params[:date_type])
