@@ -1,7 +1,7 @@
 class Preference < ActiveRecord::Base
 
   belongs_to :user
-  has_one :activity
+  belongs_to :activity_type
 
 #finds a match for the current user preferences 
 

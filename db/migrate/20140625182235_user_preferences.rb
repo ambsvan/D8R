@@ -1,10 +1,11 @@
 class UserPreferences < ActiveRecord::Migration
   def change
     create_table :preferences do |t|
-      t.integer :user_id
+      t.references :user
       t.string :gender_pref
-      t.integer :age_range
-      t.string :date_type
+      t.integer :min_age
+      t.integer :max_age
+      t.references :activity_type
     end
   end
 end

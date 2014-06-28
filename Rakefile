@@ -20,3 +20,15 @@ desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
+
+task :environment do
+  require File.expand_path(File.join(*%w[ config environment ]), File.dirname(__FILE__))
+end
+
+desc 'Install the seed data'
+task 'db:seed' => :environment do
+
+  require File.expand_path(File.join(%w{db seeds.rb}))
+
+end
+
