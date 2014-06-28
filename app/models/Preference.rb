@@ -18,14 +18,17 @@ class Preference < ActiveRecord::Base
 
   def self.find_age_range_match(user_preferences)
     current_users_age_range_pref = user_preferences.age_range
-    array = current_users_age_range_pref.split(',').map { |x| x.to_i }
-   age_range_array = array[0]..array[1]
-   for i in age_range_array
-    return i
+    array = current_users_age_range_pref.split('-').map(&:to_i)
+    x=(array[0]..array[1])
+    for i in x
+      puts i
+    end
+    # return age_range_array = array[1]
+   # for i in age_range_array
+   #  return
   end
 
     # ages = Preference.find(6).age_range.split
-  end
 
   # def find_age_range_values(matches)
   #   matches.each do |x|
