@@ -2,19 +2,20 @@
 <a href="/">Back to Login Page</a>
 <%if get_current_user %>
 <form action="/logout" method="post">
-  <input type="submit" value="logout">
+  <input type="submit" value="Logout">
 </form>
 <% end %>
-
 <% if get_current_user %>
-  <h2> Welcome <%= @current_user.username %>! Your user ID is: <%= @current_user.id %></h2>
+
+  <h2> Welcome, <%= @current_user.username.capitalize %>!</h2>
 <%else%> 
 <h2><a href="/signup">Please sign in!</h2>
 <%end%>
 
+<p>Here is your profile picture being displayed to other users: </p>
 <img src= "<%= @current_user.img %>" max-width=25% >
 <br>
-<%= @current_user.bio %>
+<p>This is how you describe yourself:<br><br>"<%= @current_user.bio %>"</p>
 
 <h2> Date preferences</h2>
 
@@ -38,12 +39,12 @@
       </div>
       <div>
         <h3>Where would you like to go on your date?</h3>
-        <select name="date_type" value="" required>
+        <select name="activity_type_id" value="" required>
         <option value="nil" selected disabled>Select an option</option>
-        <option value="coffee">Coffee</option>
-        <option value="outdoor_activity">Outdoor Activity</option>
-        <option value="restaurant">Restaurant</option>
-        <option value="drinks">Drinks</option>
+        <option value="1">Coffee</option>
+        <option value="2">Outdoor Activity</option>
+        <option value="3">Restaurant</option>
+        <option value="4">Drinks</option>
         </select>
       </div>
       <br><br>
