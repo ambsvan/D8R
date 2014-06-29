@@ -28,8 +28,8 @@
     </div>
 </nav>
 
-<%if @user.nil? %>
 
+<%if get_current_user.nil? %>
 <form action="/" method="post">
     <div class="form">
       <div>

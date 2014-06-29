@@ -7,8 +7,6 @@
 </form>
 <% end %>
 
-<h3>Match Page</h3>
-
 <h3>Here are your matches!</h3>
 
 <% z = @matches %>
@@ -17,7 +15,11 @@
 <img src= "<%= match.img %>">
 <br>
 <% end %>
-<h2> Who is paying? </h2>
+
+<h2>On your date you are going to:</h2>
+
+
+<h2> Who pays? </h2>
 <% pays = ["You're paying!", "You're splitting it 50/50", "You don't have to pay a dime :)"] %>
 <%= pays[ rand(3) ] %>
 
