@@ -61,13 +61,14 @@ post '/profile' do
       gender_pref: params[:gender_pref],
       min_age: params[:min_age],
       max_age: params[:max_age])
+      @preference.save
   else
       @preference.update_attributes(
         user_id: session[:user_id].to_i, 
         gender_pref: params[:gender_pref], 
         min_age: params[:min_age],
         max_age: params[:max_age])
-
+      @preference.save
   end
   redirect '/profile'
 end

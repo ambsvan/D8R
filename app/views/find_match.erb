@@ -1,4 +1,4 @@
-<a href="/">Home</a>
+<a href="/profile">Back to my profile</a>
 
 <%if get_current_user %>
 <form action="/logout" method="post">
@@ -8,7 +8,7 @@
 <% end %>
 
 <% @matches.each do |x| %>
-<%= puts x.to_s %>
+<%= puts x %>
 <% end %>
 
 
