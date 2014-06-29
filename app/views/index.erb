@@ -1,29 +1,19 @@
 
-<center><h1>D8r</h1></center>
+<center><h1>D8r</h1>
 
-
-<div class="container">
-
-<center><h2>Welcome to D8r. Dating just got less awkward.</h2></center>
-
-<center>
-
+<h2>Welcome to D8r. Dating just got less awkward.</h2>
     <!-- Collection of nav links and other content for toggling -->
-
-    <div id="navbarCollapse" class="collapse_navbar_collapse">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="#">Logout</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-left">
-            <li>Already have a profile? Well <strong><a href="/login">login</strong></a> then</li>
-        </ul>
-</nav>
-</div>
-
+  <a href="/" class="nice-link">Home</a><br>
+  <a href="/profile" class="nice-link">Profile</a><br>
+  <a href="#" class="nice-link">Logout</a><br><br>
+  Already have a profile? <strong><a href="/login">Login</strong></a>
+  </strong></center>
+  <br>
+  <br>
 
 <%if get_current_user.nil? %>
+<center>
+<div class = "login">
 <form action="/" method="post">
     <div class="form">
       <div>
@@ -45,11 +35,15 @@
 
       </div>
        <div>
-       <label></label><br>
-          <input type="radio" name="gender" value="male">Male<br>
-          <input type="radio" name="gender" value="female">Female
+       <label>Gender:</label>
+        <select name="gender" value="<%= @user && @user.gender %>" required>
+        <option value="nil" selected disabled>Select an option</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        </select>
+        <br>
       </div>
-      <div>
+      <div><br>
 
         <label>Bio:</label>
         <input type="text" name="bio" value="<%= @user && @user.bio %>">
@@ -67,8 +61,6 @@
 
 <!-- <form action="/login" method="post"> -->
   <!-- <input type="submit" value="Login"> -->
-</form>
-</span>
 
 <%end%>
 
@@ -83,16 +75,9 @@
   </div>
 <% end %>
 
-
+<center>
 <%if get_current_user %>
 <p>Looks like you're already signed in!</p>
-<!-- <form action="/profile" method="post">
-  <input type="submit" value="Go to my profile">
- --></form>
-<br>
-<!-- <form action="/logout" method="post"> -->
-  <!-- <input type="submit" value="Logout"> -->
-</form>
 <%end%>
 
 </div>

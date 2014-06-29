@@ -1,19 +1,21 @@
-<a href="/profile">Back to my profile</a>
+<center><a href="/profile">Back to my profile</a>
 
 <%if get_current_user %>
 <form action="/logout" method="post">
-  <input type="submit" value="logout">
+  <input type="submit" value="Logout">
 
 </form>
 <% end %>
 
-<h3>Here are your matches!</h3>
+<h3>You matched with:</h3>
 
 <div id = "show_match">
 <% z = @matches %>
 <% z.each do |match| %>
-<%= match.username %><br>
+<p>You matched with: <%= match.username %></p><br>
 <img src= "<%= match.img %>" max-width=25%>
+<p> This user is <%= match.age %> years old.</p>
+<p>This is how they described themselves: <%= match.bio %></p>
 <br>
 <% end %>
 </div>
@@ -33,3 +35,4 @@
 <%= pays[ rand(3) ] %>
 
 </div>
+</center>
