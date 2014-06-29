@@ -3,7 +3,7 @@
 
 <h2>Welcome to the App. Please Sign up below.</h2>
 
-<%if @user.nil? %>
+<%if get_current_user.nil? %>
 <form action="/" method="post">
     <div class="form">
       <div>
