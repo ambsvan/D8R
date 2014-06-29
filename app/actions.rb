@@ -60,14 +60,16 @@ post '/profile' do
       user_id: session[:user_id].to_i,
       gender_pref: params[:gender_pref],
       min_age: params[:min_age],
-      max_age: params[:max_age])
+      max_age: params[:max_age],
+      activity_type_id: params[:activity_type_id])
       @preference.save
   else
       @preference.update_attributes(
         user_id: session[:user_id].to_i, 
         gender_pref: params[:gender_pref], 
         min_age: params[:min_age],
-        max_age: params[:max_age])
+        max_age: params[:max_age],
+        activity_type_id: params[:activity_type_id])
       @preference.save
   end
   redirect '/profile'
@@ -76,5 +78,6 @@ end
 
 get '/find_match' do
   @matches = User.find_matches(get_current_user)
+  @dates = Activity.find_activity(get_current_user)
   erb :'/find_match'
 end
