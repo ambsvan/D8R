@@ -7,10 +7,12 @@
 </form>
 <% end %>
 
-<% @matches.each do |x| %>
-<%= puts x %>
-<% end %>
-
-
 <h3>Match Page</h3>
+
+<h3>Here are your matches!</h3>
+
+<p><% @matches.each do |x| %>
+<%= puts x.username %>
+<% end %></p>
+
 </div>
