@@ -1,7 +1,9 @@
+<center>
 <h1>SnapDate</h1>
 
 <h2>Welcome to the App. Please Sign up below.</h2>
 
+<%if get_current_user == false %>
 <form action="/" method="post">
     <div class="form">
       <div>
@@ -21,7 +23,7 @@
         <input type="text" name="age" value="<%= @user && @user.age %>">
       </div>
        <div>
-       <label>Gender:</label>
+       <label></label><br>
           <input type="radio" name="gender" value="male">Male<br>
           <input type="radio" name="gender" value="female">Female
       </div>
@@ -29,14 +31,20 @@
         <label>Bio (140 chars max):</label>
         <input type="text" name="bio" value="<%= @user && @user.bio %>">
       </div>
+      <br>
       <div>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Sign Me Up!">
       </div>
     </div>
   </div>
 </form>
 
-<a href="/">Reload Homepage</a>
+<form action="/login" method="post">
+  <input type="submit" value="Login">
+</form>
+
+<%end%>
+
 
   <% if @user && @user.errors.any? %>
   <div>
@@ -49,7 +57,13 @@
   </div>
 <% end %>
 
-
-<form action="/login" method="post">
-  <input type="submit" value="login">
+<%if get_current_user %>
+<p>Looks like you're already signed in!</p>
+<form action="/profile" method="post">
+  <input type="submit" value="Go to my profile">
 </form>
+<br>
+<form action="/logout" method="post">
+  <input type="submit" value="Logout">
+</form>
+<%end%>
