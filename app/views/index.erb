@@ -1,12 +1,34 @@
-<h1>SnapDate</h1>
+<center><h1>D8r</h1></center>
 
-<center><h2>Welcome to the App. Please Sign up below.</h2></center>
+<center><h2>Welcome to D8r. Dating just got less awkward.</h2></center>
 
-<div class="margin"></div>
+<nav role="navigation" class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/login" class="navbar-brand">D8R</a>
+    </div>
+    <!-- Collection of nav links and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">
+            <li>Already have a profile? Well <strong><a href="/login">login</strong></a> then</li>
+        </ul>
+    </div>
+</nav>
 
-<div class="form">
+<div class="profile_form">
 <form action="/" method="post">
-    <div>
+    <div class="form">
       <div>
         <label>Username:</label>
         <input type="text" name="username" value="<%= @user && @user.username %>">
@@ -20,28 +42,26 @@
         <input type="text" name="img" value="<%= @user && @user.img %>">
       </div>
       <div>
-        <label>Age:</label>
+        <label>Age:     </label>
         <input type="text" name="age" value="<%= @user && @user.age %>">
       </div>
        <div>
-       <label>Gender:</label> &nbsp;
-          <input type="radio" name="gender" value="male">Male &nbsp;
+       <label>Gender:</label>
+          <input type="radio" name="gender" value="male">Male<br>
           <input type="radio" name="gender" value="female">Female
       </div>
       <div>
-        <label>Bio (140 chars max):</label>
+        <label>Bio:</label>
         <input type="text" name="bio" value="<%= @user && @user.bio %>">
-      </div
+      </div>
       <div>
-      <input type="submit" value="Submit">
+      <input class="button_style" type="submit" value="Submit">
       </div>
     </div>
   </div>
+  </div>
 </form>
-</div>
 
-
-<a href="/">Reload Homepage</a>
 
   <% if @user && @user.errors.any? %>
   <div>
@@ -53,9 +73,9 @@
     </ul>
   </div>
 <% end %>
-<br>
-<div class="login">
-<form action="/login" method="post">
-  <input type="submit" value="login">
-</form>
-</div>
+
+
+<!-- <form action="/login" method="post">
+  <input class="button_style" type="submit" value="login">
+  </div>
+</form> -->
