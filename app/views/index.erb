@@ -2,21 +2,15 @@
 <center><h1>D8r</h1></center>
 
 
+<div class="container">
+
 <center><h2>Welcome to D8r. Dating just got less awkward.</h2></center>
 
-<nav role="navigation" class="navbar navbar-default">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="/login" class="navbar-brand">D8R</a>
-    </div>
+<center>
+
     <!-- Collection of nav links and other content for toggling -->
-    <div id="navbarCollapse" class="collapse navbar-collapse">
+
+    <div id="navbarCollapse" class="collapse_navbar_collapse">
         <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/profile">Profile</a></li>
@@ -25,8 +19,8 @@
         <ul class="nav navbar-nav navbar-left">
             <li>Already have a profile? Well <strong><a href="/login">login</strong></a> then</li>
         </ul>
-    </div>
 </nav>
+</div>
 
 <%if @user.nil? %>
 
@@ -71,10 +65,10 @@
   </div>
 </form>
 
-<form action="/login" method="post">
-  <input type="submit" value="Login">
+<!-- <form action="/login" method="post"> -->
+  <!-- <input type="submit" value="Login"> -->
 </form>
-
+</span>
 
 <%end%>
 
@@ -92,11 +86,14 @@
 
 <%if get_current_user %>
 <p>Looks like you're already signed in!</p>
-<form action="/profile" method="post">
+<!-- <form action="/profile" method="post">
   <input type="submit" value="Go to my profile">
-</form>
+ --></form>
 <br>
-<form action="/logout" method="post">
-  <input type="submit" value="Logout">
+<!-- <form action="/logout" method="post"> -->
+  <!-- <input type="submit" value="Logout"> -->
 </form>
 <%end%>
+
+</div>
+</center>

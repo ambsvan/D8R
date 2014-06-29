@@ -1,6 +1,17 @@
 *{
   color:#bf0000 ;
+  font-family: soleil;
 }
+
+
+html { 
+  background: url(http://www.wallpaperfo.com/thumbnails/detail/20120429/cityscapes%20grayscale%20monochrome%201680x1050%20wallpaper_www.wallpaperfo.com_84.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 .match_title {
   margin-top: 2em;
@@ -16,12 +27,21 @@
 }
 
 
-html { 
-  background: url(http://www.wallpaperfo.com/thumbnails/detail/20120429/cityscapes%20grayscale%20monochrome%201680x1050%20wallpaper_www.wallpaperfo.com_84.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.nav_form{
+  width:25em;
+  background-color: #696969;
+  border-radius:15px;
+
+}
+
+.collapse_navbar_collapse{
+ background: #c0c0c0;
+  width: 200px;
+  height: 100%;
+  margin-left: auto;
+  margin-right:auto;
+
+  
 }
 .profile_form, .login_button {
   align:center;
@@ -44,22 +64,28 @@ html {
   margin-left: auto;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   background: #bf0000;
-  border: 0:;
-  cursor: pointer;
+  border: 0;
   -webkit-box-shadow: inset 0 -2px #e2b607;
   box-shadow: inset 0 -2px #e2b607;
-}
-.button_style:active {
-  top: 1px;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 
 .navbar-header {
 display:block;
 color: black;                        
-font-family:soleil;
 font-size:1.5em;
 padding:5px 20px;
+margin-left: auto;
+margin-right:auto;
+width:200px;
+}
+
+
+.container {
+  background: #c0c0c0;
+  width: 200px;
+  height: 100%;
+  margin-left: auto;
+  margin-right:auto;
+
+
 }
