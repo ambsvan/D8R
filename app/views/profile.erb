@@ -1,17 +1,19 @@
-<% if get_current_user %>
-  <h2> Welcome <%= @current_user.username %> <%= @current_user.id %></h2>
-<%else%> 
-<h2><a href="/signup">please sign in</h2>
-<%end%>
-
-<a href="/">Home</a>
+<center>
+<a href="/">Back to Login Page</a>
 <%if get_current_user %>
 <form action="/logout" method="post">
   <input type="submit" value="logout">
 </form>
 <% end %>
 
+<% if get_current_user %>
+  <h2> Welcome <%= @current_user.username %>! Your user ID is: <%= @current_user.id %></h2>
+<%else%> 
+<h2><a href="/signup">Please sign in!</h2>
+<%end%>
+
 <img src= "<%= @current_user.img %>" max-width=25% >
+<br>
 <%= @current_user.bio %>
 
 <h2> Date preferences</h2>
@@ -19,36 +21,39 @@
 <form action="/profile" method="post">
   <div class="form">
       <div>
+        <h3>What is the minimum age? (Min 18)</h3>
+        <input type="text" name="min_age" value="" required>
+      </div>
+      <div>
+        <h3>What is the maximum age? (Max 85)</h3>
+        <input type="text" name="max_age" value="" required>
+      </div>
+      <div>
         <h3>Choose your gender preference:</h3>
-        <select name="gender_pref">
+        <select name="gender_pref" value="" required>
+        <option value="nil" selected disabled>Select an option</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         </select>
       </div>
       <div>
-        <h3>Choose your age range:</h3>
-        <select name="age_range">
-        <option value="18-25">18-25</option>
-        <option value="26-35">25-35</option>
-        <option value="36-45">25-45</option>
-        <option value="45+">45+</option>
-        </select>
-      </div>
-      <div>
-        <h3>Choose your date type:</h3>
-        <select name="date_type">
+        <h3>Where would you like to go on your date?</h3>
+        <select name="date_type" value="" required>
+        <option value="nil" selected disabled>Select an option</option>
         <option value="coffee">Coffee</option>
         <option value="outdoor_activity">Outdoor Activity</option>
         <option value="restaurant">Restaurant</option>
         <option value="drinks">Drinks</option>
         </select>
       </div>
+      <br><br>
     </div>
     <input type="submit" value="Save Preferences">
 </form>
-
+<br><br>
+Are you ready?
 <%if get_current_user %>
 <form action="/find_match" method="get">
-  <input type="submit" value="Find me a match!">
+  <input type="submit" value="Yes! Find me a date!">
 </form>
 <% end %>

@@ -1,4 +1,6 @@
+
 <center><h1>D8r</h1></center>
+
 
 <center><h2>Welcome to D8r. Dating just got less awkward.</h2></center>
 
@@ -26,44 +28,57 @@
     </div>
 </nav>
 
-<div class="profile_form">
+<%if @user.nil? %>
+
 <form action="/" method="post">
     <div class="form">
       <div>
         <label>Username:</label>
-        <input type="text" name="username" value="<%= @user && @user.username %>">
+        <input type="text" name="username" value="<%= @user && @user.username %>"required >
       </div>
       <div>
         <label>Password:</label>
-        <input type="text" name="password" value="<%= @user && @user.password %>">
+        <input type="password" name="password" value="<%= @user && @user.password %>"required >
       </div>
        <div>
         <label>Avatar URL:</label>
-        <input type="text" name="img" value="<%= @user && @user.img %>">
+        <input type="url" name="img" value="<%= @user && @user.img %>" required >
       </div>
       <div>
-        <label>Age:     </label>
-        <input type="text" name="age" value="<%= @user && @user.age %>">
+
+        <label>Age:</label>
+        <input type="text" name="age" value="<%= @user && @user.age %>" required>
+
       </div>
        <div>
-       <label>Gender:</label>
+       <label></label><br>
           <input type="radio" name="gender" value="male">Male<br>
           <input type="radio" name="gender" value="female">Female
       </div>
       <div>
+
         <label>Bio:</label>
         <input type="text" name="bio" value="<%= @user && @user.bio %>">
+
       </div>
+      <br>
       <div>
-      <input class="button_style" type="submit" value="Submit">
+
+      <input type="submit" value="Sign Me Up!">
       </div>
     </div>
   </div>
   </div>
 </form>
 
+<form action="/login" method="post">
+  <input type="submit" value="Login">
+</form>
 
-  <% if @user && @user.errors.any? %>
+
+<%end%>
+
+<% if @user && @user.errors.any? %>
   <div>
     <strong>There are some issues with your input, you'll have to fix them:</strong>
     <ul>
@@ -75,7 +90,13 @@
 <% end %>
 
 
-<!-- <form action="/login" method="post">
-  <input class="button_style" type="submit" value="login">
-  </div>
-</form> -->
+<%if get_current_user %>
+<p>Looks like you're already signed in!</p>
+<form action="/profile" method="post">
+  <input type="submit" value="Go to my profile">
+</form>
+<br>
+<form action="/logout" method="post">
+  <input type="submit" value="Logout">
+</form>
+<%end%>

@@ -4,29 +4,9 @@ helpers do
   end
 end
 
-helpers do  
-  def find_activity
-      date_type_match = Activity.where(date_type: user_preferences.date_type)
-  end
-end
-
-
-# @current_user=get_current_user
-# @preferences =@current_user.preferences
-
-# list =User.find_by((:gender => @preferences.gender_pref) 
-    # @match = User.where(:gender => @preferences.gender_pref,
-    #   :age => @preferences.age_range).first
-
-
-
-#starts session for current user
-
-
 get '/' do
   erb :'index'
 end
-#loads homepage
 
 get '/profile' do
   erb :'profile'
@@ -34,7 +14,6 @@ end
 
 post '/' do
   @user = User.new(
-    # id: session[:id].to_i),
     username: params[:username],
     password: params[:password],
     img:  params[:img],
@@ -49,9 +28,6 @@ post '/' do
     erb :'index' 
   end
 end
-
-# Creates a new user and adds to database
-# Reloads the page, need to implement redirect
 
 get '/login' do
   erb :'/login'
@@ -70,7 +46,6 @@ post '/login' do
     erb :'/login'
   end
 end
-#login
 
 post '/logout' do
   session[:user_id] = nil
@@ -84,38 +59,22 @@ post '/profile' do
       @preference = Preference.create(
       user_id: session[:user_id].to_i,
       gender_pref: params[:gender_pref],
-      age_range: params[:age_range],
-      date_type: params[:date_type])
+      min_age: params[:min_age],
+      max_age: params[:max_age])
+      @preference.save
   else
       @preference.update_attributes(
         user_id: session[:user_id].to_i, 
         gender_pref: params[:gender_pref], 
-        age_range: params[:age_range], 
-        date_type: params[:date_type]) 
-
+        min_age: params[:min_age],
+        max_age: params[:max_age])
+      @preference.save
   end
   redirect '/profile'
 end
 
-# post '/activity' do
-#   @current_user = User.find(session[:user_id])
-#   @preferences = @current_user.preference
-#   erb :activity
-# end
-
 
 get '/find_match' do
-  #finds the preferences of the current user in the pref table
-  user_preference = Preference.find(get_current_user)
-  #calls the find match method on preferences table and returns
-  #the matchs for gender and age range in a list of matches
-  @gender_matches = Preference.find_gender_match(user_preference)
-  @date_type_matches = Preference.find_date_type_match(user_preference)
-  @age_range = Preference.find_age_range_match(user_preference)
-  # @activity = generate_activity
+  @matches = User.find_matches(get_current_user)
   erb :'/find_match'
 end
-
-
-
-  #logout
