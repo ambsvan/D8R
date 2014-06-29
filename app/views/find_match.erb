@@ -7,17 +7,28 @@
 </form>
 <% end %>
 
-<h3>Match Page</h3>
-
 <h3>Here are your matches!</h3>
 
+<div id = "show_match">
 <% z = @matches %>
 <% z.each do |match| %>
 <%= match.username %><br>
-<img src= "<%= match.img %>">
+<img src= "<%= match.img %>" max-width=25%>
 <br>
 <% end %>
-<h2> Who is paying? </h2>
+</div>
+
+<div id = "show_date">
+<h2>On your date you are going to:</h2>
+<% y = @dates %>
+<% y.each do |date| %>
+<%= date.location %><% date.description %><br>
+<img src= "<%= date.img %>" max-width=25%>
+<br>
+<% end %>
+</div>
+
+<h2> Who pays? </h2>
 <% pays = ["You're paying!", "You're splitting it 50/50", "You don't have to pay a dime :)"] %>
 <%= pays[ rand(3) ] %>
 
