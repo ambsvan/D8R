@@ -11,8 +11,12 @@
 
 <h3>Here are your matches!</h3>
 
-<p><% @matches.each do |x| %>
-<%= puts x.username %>
-<% end %></p>
+<% z = @matches %>
+<% z.each do |match| %>
+<%= match.username %><br>
+<img src= "<%= match.img %>">
+<br>
+<% end %>
+
 
 </div>

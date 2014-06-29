@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_matches(user)
-    gender_matches(user).age_matches(user)
+    u = gender_matches(user).age_matches(user)
     # .activity_matches(user)
   end
 

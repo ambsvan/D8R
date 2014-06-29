@@ -8,19 +8,19 @@
     <div class="form">
       <div>
         <label>Username:</label>
-        <input type="text" name="username" value="<%= @user && @user.username %>">
+        <input type="text" name="username" value="<%= @user && @user.username %>"required >
       </div>
       <div>
         <label>Password:</label>
-        <input type="text" name="password" value="<%= @user && @user.password %>">
+        <input type="password" name="password" value="<%= @user && @user.password %>"required >
       </div>
        <div>
         <label>Avatar URL:</label>
-        <input type="text" name="img" value="<%= @user && @user.img %>">
+        <input type="url" name="img" value="<%= @user && @user.img %>" required >
       </div>
       <div>
         <label>Age:</label>
-        <input type="text" name="age" value="<%= @user && @user.age %>">
+        <input type="text" name="age" value="<%= @user && @user.age %>" required>
       </div>
        <div>
        <label></label><br>
@@ -29,7 +29,7 @@
       </div>
       <div>
         <label>Bio (140 chars max):</label>
-        <input type="text" name="bio" value="<%= @user && @user.bio %>">
+        <input type="text" name="bio" value="<%= @user && @user.bio %>" required>
       </div>
       <br>
       <div>
@@ -45,8 +45,7 @@
 
 <%end%>
 
-
-  <% if @user && @user.errors.any? %>
+<% if @user && @user.errors.any? %>
   <div>
     <strong>There are some issues with your input, you'll have to fix them:</strong>
     <ul>
