@@ -1,17 +1,18 @@
+
+
 <center><h1>D8r</h1>
 
+<center>
 <h2>Welcome to D8r. Dating just got less awkward.</h2>
     <!-- Collection of nav links and other content for toggling -->
   <a href="/" class="nice-link">Home</a><br>
-  <a href="/profile" class="nice-link">Profile</a><br>
-  <a href="#" class="nice-link">Logout</a><br><br>
-  Already have a profile? <strong><a href="/login">Login</strong></a>
-  </strong></center>
+  </strong>
   <br>
   <br>
 
+  <img src="http://static1.businessinsider.com/image/51c4c7f9ecad04ed35000002/online-dating-is-losing-its-stigma-among-single-americans.jpg">
+
 <%if get_current_user.nil? %>
-<center>
 <div class = "login">
 <form action="/" method="post">
     <div class="form">
@@ -57,9 +58,8 @@
   </div>
   </div>
 </form>
-
-<!-- <form action="/login" method="post"> -->
-  <!-- <input type="submit" value="Login"> -->
+<br><br>
+ <p>Already have a profile? <strong><a href="/login">Login</strong></a><br></p>
 
 <%end%>
 
@@ -77,7 +77,12 @@
 <center>
 <%if get_current_user %>
 <p>Looks like you're already signed in!</p>
-<%end%>
+<a href="/profile" class="nice-link">Profile</a><br>
+  
+<form action="/logout" method="post">
+<input type="submit" value="Logout">
+</form>
+<% end %>
 
 </div>
 </center>
