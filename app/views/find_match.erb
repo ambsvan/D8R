@@ -7,8 +7,6 @@
 </form>
 <% end %>
 
-<h3>Match Page</h3>
-
 <h3>Here are your matches!</h3>
 
 <% z = @matches %>
@@ -18,5 +16,9 @@
 <br>
 <% end %>
 
+<h2>On your date you are going to:</h2>
+
+<% pays = ["You're paying!", "You're splitting it 50/50", "You don't have to pay a dime :)"] %>
+<%= pays[ rand(2) ] %>
 
 </div>
