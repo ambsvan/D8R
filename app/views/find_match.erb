@@ -10,7 +10,7 @@
 <div id = "show_match">
 <% z = @matches %>
 <% x = z.sample %>
-<h2>You matched with:<h2><%= x.username %></h2></strong></h2><br>
+<p>You matched with:</p><h2><%= x.username %></h2></strong></h2><br>
 <img src= "<%=@current_user.img%>" width="200" height="200" >    <img src= "<%= x.img %>" width="200" height="200"  />
 <p> Your match is <h2><%= x.age %></h2> years old.</p>
 <p> As you specified, the user is <h2><%= x.gender %></strong></h2>
@@ -23,12 +23,8 @@
 <h2><% date =["Tomorrow at 5pm!", "Tomorrow at 6pm!", "Tomorrow at 7pm!", "Tomorrow at 8pm!"] %>
 <%= date[ rand(4) ] %></h2>
 <p>at</p>
-<% y = @dates %>
-<% p = @dates.sample %>
-<h2><%= p.location %><% p.description %><br></h2>
-<img src= "<%= p.img %>" max-width=25%>
-<br>
-</div>
+
+<h2><%= @random_date %></h2>
 
 <p> and </p>
 <h2><% pays = ["You're paying!", "You're splitting it 50/50", "You don't have to pay a dime :)"] %>

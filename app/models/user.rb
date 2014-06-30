@@ -29,4 +29,15 @@ class User < ActiveRecord::Base
     # .activity_matches(user)
   end
 
+  def self.generate_date
+    dates = ['milanos', 'starbucks', 'revolver'][ rand(3) ]
+    if dates == 'milanos'
+      return "Milanos!<br><a href='http://www.milanocoffee.ca/'><img src='http://www.jenellisdesigns.com/sites/jenellisdesigns.com/files/march%202nd%20jen%202012%20073.JPG' target='_blank'><br>On 36 Powell St</a>"
+    elsif dates == 'starbucks'
+      return "Starbucks! <br><a href='http://www.starbucks.ca/store/1110/ca/gastown/199-water-street-vancouver-bc-v6b-1a7' target='_blank'><img src='http://www.oakvilledowntown.com/sites/default/files/Starbucks.gif'><br>On 199 Water Street</a>"
+    else dates == 'revolver'
+      return "Revolver!<br><a href='http://revolvercoffee.ca/'><img src='http://urbandiner.ca/wp-content/uploads/2011/09/revolver-cafe.jpg' target='_blank'><br>On 325 Cambie St</a>"
+    end
+  end
+
 end
