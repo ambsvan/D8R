@@ -33,7 +33,7 @@ activity_types.each do |activity_type|
 end
 
 20.times do |n|
-  username = "Shakira#{n}"
+  username = "Ana#{n}"
   user = User.where(:username => username).first_or_create!({
     :username => username, 
     :password => 'password',

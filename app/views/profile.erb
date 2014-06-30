@@ -24,12 +24,28 @@
 <form action="/profile" method="post">
   <div class="form">
       <div>
-        <h3>Minimum age? (Min 18)</h3>
-        <input type="text" name="min_age" value="" required>
-      </div>
       <div>
-        <h3>Maximum age?</h3>
-        <input type="text" name="max_age" value="" required>
+        <h3>Minimum age (Min 18)</h3>
+        <select name="min_age" value="" required>
+        <option value="nil" selected disabled>Select an age</option>
+        <%  $i = 18 %>
+        <% $num = 99 %>
+        <% while $i < $num  do %>
+        <option value="<%= $i %>"><%= $i %></option>
+        <%  $i +=1%>
+        <% end %>
+        </select>
+      </div>
+      <h3>Maximum age?</h3>
+        <select name="max_age" value="" required>
+        <option value="nil" selected disabled>Select an age</option>
+        <%  $i = 18 %>
+        <% $num = 99 %>
+        <% while $i < $num  do %>
+        <option value="<%= $i %>"><%= $i %></option>
+        <%  $i +=1%>
+        <% end %>
+        </select>
       </div>
       <div>
         <h3>Choose your gender preference:</h3>
