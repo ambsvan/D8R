@@ -1,4 +1,5 @@
 <center>
+<body>
 <a href="/">Back to Login Page</a>
 <%if get_current_user %>
 <form action="/logout" method="post">
@@ -25,7 +26,7 @@
   <div class="form">
       <div>
       <div>
-        <h3>Minimum age (Min 18)</h3>
+        <h3>Minimum age</h3>
         <select name="min_age" value="" required>
         <option value="nil" selected disabled>Select an age</option>
         <%  $i = 18 %>
@@ -36,7 +37,7 @@
         <% end %>
         </select>
       </div>
-      <h3>Maximum age?</h3>
+      <h3>Maximum age</h3>
         <select name="max_age" value="" required>
         <option value="nil" selected disabled>Select an age</option>
         <%  $i = 18 %>
@@ -81,3 +82,4 @@ Are you ready?
   <input type="submit" value="Yes! Find me a date!">
 </form>
 <% end %>
+</body>
