@@ -7,33 +7,39 @@
 </form>
 <% end %>
 
-<h3>You matched with:</h3>
-
 <div id = "show_match">
 <% z = @matches %>
-<% z.each do |match| %>
-<p>You matched with: <%= match.username %></p><br>
-<img src= "<%= match.img %>" max-width=25%>
-<p> This user is <%= match.age %> years old.</p>
-<p>This is how they described themselves: <%= match.bio %></p>
+<% x = z.sample %>
+<h2>You matched with:<strong> <%= x.username %></strong></h2><br>
+<img src= "<%=@current_user.img%>" width="200" height="200" >    <img src= "<%= x.img %>" width="200" height="200"  />
+<p> Your match is <strong><%= x.age %></strong> years old.</p>
+<p> As you specified, the user is <strong><%= x.gender %></strong></p>
+<p>This is how they described themselves:<strong> <%= x.bio %> </strong></p>
 <br>
-<% end %>
 </div>
 
 <div id = "show_date">
 <h2>On your date you are going to:</h2>
 <% y = @dates %>
-<% y.each do |date| %>
-<%= date.location %><% date.description %><br>
-<img src= "<%= date.img %>" max-width=25%>
+<% p = @dates.sample %>
+<%= p.location %><% p.description %><br>
+<img src= "<%= p.img %>" max-width=25%>
 <br>
-<% end %>
 </div>
 
-<h2> Who pays? </h2>
-<% pays = ["You're paying!", "You're splitting it 50/50", "You don't have to pay a dime :)"] %>
-<%= pays[ rand(3) ] %>
+<p> and </p>
+<h2><% pays = ["You're paying!", "You're splitting it 50/50", "You don't have to pay a dime :)"] %>
+<%= pays[ rand(3) ] %></h2>
 
 </div>
-</center>
+
+<form action="" method="">
+<input type="submit" value="Confirm">
+
+<form action="/find_match" method="get">
+  <input type="submit" value="Find me another match!">
+</form>
+
+
 <br><br>
+</center>

@@ -25,8 +25,8 @@ activity_types.each do |activity_type|
     .where(:description => description)
     .first_or_create!({
         :description => description,
-        :location => "Earth",
-        :img => 'http://img3.wikia.nocookie.net/__cb20101220195949/spore/images/0/02/Hires_human.jpg',
+        :location => "Milano's",
+        :img => 'http://demographic.ca/wp-content/uploads/2012/01/Milano11-600x401.jpg',
         :activity_type_id => activity_type.id
       })
   end
@@ -37,10 +37,10 @@ end
   user = User.where(:username => username).first_or_create!({
     :username => username, 
     :password => 'password',
-    :img => 'http://img3.wikia.nocookie.net/__cb20101220195949/spore/images/0/02/Hires_human.jpg', 
+    :img => 'http://www.hdartwallpaper.com/wp-content/uploads/2014/05/shakira-wallpaper-widescreen-5.jpg', 
     :age => 20 + rand(20), 
     :gender => ['female','male'][ rand(2) ], 
-    :bio => 'I am a humon'
+    :bio => 'I am a wonderful person!'
     }) 
   Preference.create({
     :user_id => user.id,

@@ -77,6 +77,7 @@ end
 
 
 get '/find_match' do
+  @current_user = get_current_user
   @matches = User.find_matches(get_current_user)
   @dates = Activity.find_activity(get_current_user)
   erb :'/find_match'
