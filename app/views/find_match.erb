@@ -10,19 +10,22 @@
 <div id = "show_match">
 <% z = @matches %>
 <% x = z.sample %>
-<h2>You matched with:<strong> <%= x.username %></strong></h2><br>
+<h2>You matched with:<h2><%= x.username %></h2></strong></h2><br>
 <img src= "<%=@current_user.img%>" width="200" height="200" >    <img src= "<%= x.img %>" width="200" height="200"  />
-<p> Your match is <strong><%= x.age %></strong> years old.</p>
-<p> As you specified, the user is <strong><%= x.gender %></strong></p>
-<p>This is how they described themselves:<strong> <%= x.bio %> </strong></p>
+<p> Your match is <h2><%= x.age %></h2> years old.</p>
+<p> As you specified, the user is <h2><%= x.gender %></strong></h2>
+<p>This is how they described themselves:<h2> "<%= x.bio %>" </strong></h2>
 <br>
 </div>
 
 <div id = "show_date">
-<h2>On your date you are going to:</h2>
+<p> Your date is</p>
+<h2><% date =["Tomorrow at 5pm!", "Tomorrow at 6pm!", "Tomorrow at 7pm!", "Tomorrow at 8pm!"] %>
+<%= date[ rand(4) ] %></h2>
+<p>at</p>
 <% y = @dates %>
 <% p = @dates.sample %>
-<%= p.location %><% p.description %><br>
+<h2><%= p.location %><% p.description %><br></h2>
 <img src= "<%= p.img %>" max-width=25%>
 <br>
 </div>
@@ -35,10 +38,6 @@
 
 <form action="" method="">
 <input type="submit" value="Confirm">
-
-<form action="/find_match" method="get">
-  <input type="submit" value="Find me another match!">
-</form>
 
 
 <br><br>

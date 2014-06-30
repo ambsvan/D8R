@@ -1,4 +1,4 @@
-<center><h1>Login Below.</h1>
+<center><h1>Login Below</h1>
 
 <form action="/login" method="post">
     <div class="login">
@@ -16,6 +16,6 @@
     </div>
   </div>
 </form>
-<div><% @login_failed  %>Invalid login, please try again</div>
+<div><% if @login_failed  %>Invalid login, please try again.<%end%></div>
 
 <a href="/">Reload Homepage</a></center>
