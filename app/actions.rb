@@ -79,7 +79,7 @@ end
 get '/find_match' do
   @random_date = User.generate_date
   @current_user = get_current_user
-  @matches = User.find_matches(get_current_user)
-  @dates = Activity.find_activity(get_current_user)
+  @matches = User.find_matches(@current_user)
+  @dates = Activity.find_activity(@current_user)
   erb :'/find_match'
 end

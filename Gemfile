@@ -14,7 +14,6 @@ gem 'tux'
 group :development, :test do
   gem 'byebug'
   gem 'shotgun'
-  gem 'sqlite3'
   gem 'rspec'
   gem 'factory_girl'
   gem 'faker'
