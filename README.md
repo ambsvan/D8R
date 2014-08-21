@@ -1,5 +1,5 @@
 #D8R
-Language: Ruby
+Language: Ruby,
 Framework: Sinatra
 
 D8R is a dating application built for the first project at Lighthouse Labs in Week 4. 
